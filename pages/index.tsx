@@ -22,7 +22,7 @@ function HomeStack() {
         component={HomePage}
       />
       <Stack.Screen
-        options={{ headerTitle: "" }}
+        options={({ route }: any) => ({ title: route.params.header , headerTitleAlign : "center" }) } 
         name="CompanyPage"
         component={CompanyPage}
       />

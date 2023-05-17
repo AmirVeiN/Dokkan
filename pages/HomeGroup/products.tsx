@@ -1,11 +1,31 @@
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { useAppSelector } from "../../store/hooks";
-import { FontAwesome } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/core";
+import { StackNavigationProp } from "@react-navigation/stack";
 
-function Element(props: { name: string; minPrice: number; maxPrice: number }) {
+function Element(props: {
+  name: string;
+  minPrice: number;
+  maxPrice: number;
+  listName: string;
+}) {
+  type RootStackParamList = {
+    CompanyPage: { name: string; header: string } | undefined;
+  };
+
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
   return (
-    <TouchableOpacity className="mb-5 flex h-28 w-full flex-row justify-between rounded-xl bg-white p-3">
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("CompanyPage", {
+          name: props.listName,
+          header: props.name,
+        })
+      }
+      className="mb-5 flex h-28 w-full flex-row justify-between rounded-xl bg-white p-3"
+    >
       <View className=" flex w-1/2 flex-col justify-around">
         <View className="flex flex-row space-x-1">
           <Text className="font-vazir">تومان</Text>
@@ -34,7 +54,7 @@ function Element(props: { name: string; minPrice: number; maxPrice: number }) {
         </View>
       </View>
       <View className=" w-1/2 justify-around">
-        <Text className="font-vazir text-xl pr-3">{props.name}</Text>
+        <Text className="pr-3 font-vazir text-xl">{props.name}</Text>
         <Text></Text>
       </View>
     </TouchableOpacity>
@@ -60,8 +80,10 @@ export default function Products({ route }: any) {
       <View className="p-5 ">
         <FlatList
           data={Object.entries(useData)}
-          renderItem={({ item }) => (
+          renderItem={({ item, index }) => (
             <Element
+              key={index}
+              listName={item[0]}
               name={item[1][2]}
               minPrice={item[1][0]}
               maxPrice={item[1][1]}
