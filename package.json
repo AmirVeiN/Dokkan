@@ -13,6 +13,7 @@
     "@expo-google-fonts/marhey": "^0.2.3",
     "@expo-google-fonts/reem-kufi-fun": "^0.2.3",
     "@expo-google-fonts/vazirmatn": "^0.2.3",
+    "@react-native-community/blur": "^4.3.2",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
@@ -34,7 +35,8 @@
     "react-native-svg": "^13.9.0",
     "react-redux": "^8.0.5",
     "tailwindcss": "^3.3.2",
-    "vazirmatn": "^33.0.3"
+    "vazirmatn": "^33.0.3",
+    "expo-blur": "~12.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

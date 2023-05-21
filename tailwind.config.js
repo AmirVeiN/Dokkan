@@ -13,6 +13,9 @@ module.exports = {
       marhey: "Marhey_700Bold",
       body: ["vazir"],
     },
+    backgroundImage: {
+      blur: "url('/assets/blur2.png')",
+    },
     colors: {
       prime: { 100: "#EDEDED", 200: "#EDEDED", 300: "#EDEDED" },
       bg: { 100: "#EDEDED", 200: "#EDEDED", 300: "#EDEDED" },
