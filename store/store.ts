@@ -1,10 +1,10 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
-import product from "./products/slice";
+import message from "./message/slice";
 import company from "./compony/slice";
 
 export const store = configureStore({
   reducer: {
-    product,
+    message,
     company,
   },
 });

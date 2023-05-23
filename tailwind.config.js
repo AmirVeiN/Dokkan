@@ -26,7 +26,8 @@ module.exports = {
       success: "#1DC322",
       info: "#3A5290",
       warning: "#E7B10A",
-
+      softYellow : "#FFE569",
+      resid :"#909090",
       white: "#FFF",
       black: "#000",
       red: "#C4716C",
