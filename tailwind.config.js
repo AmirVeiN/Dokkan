@@ -22,7 +22,7 @@ module.exports = {
       accent: { 100: "#EDEDED", 200: "#EDEDED" },
       text: { 100: "#EDEDED", 200: "#EDEDED" },
 
-      error: "#C4716C",
+      error: "#DB005B",
       success: "#1DC322",
       info: "#3A5290",
       warning: "#E7B10A",
@@ -30,7 +30,7 @@ module.exports = {
       resid :"#909090",
       white: "#FFF",
       black: "#000",
-      red: "#C4716C",
+      red: "#DB005B",
       green: "#1DC322",
       blue: "#3A5290",
 

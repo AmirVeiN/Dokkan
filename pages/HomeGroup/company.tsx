@@ -8,12 +8,20 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
-import { useAppSelector } from "../../store/hooks";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
+import { add } from "../../store/reciept/slice";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 
-function Element(props: { CompanyName: string; Price: number; Name: string }) {
+function Element(props: {
+  CompanyName: string;
+  Price: number;
+  Name: string;
+  productName: string;
+  listName: string;
+}) {
+  const dispatch = useAppDispatch();
   const [modalVisible, modalVisibleHandler] = useState(false);
   return (
     <TouchableOpacity
@@ -85,18 +93,22 @@ function Element(props: { CompanyName: string; Price: number; Name: string }) {
               <View className="-top-10">
                 <View className="h-24 w-full items-center justify-center ">
                   <TouchableOpacity
-                    onLongPress={() =>
+                    onLongPress={() => (
                       Alert.alert(
                         "سفارش شما با موفقیت ثبت شد",
                         "میتوانید در بخش سفارشات پیگیری کنید",
-                        [
-                          {
-                            text: "باشه",
-                            style: "destructive",
-                          },
-                        ]
+                        [{ text: "باشه", style: "destructive" }]
+                      ),
+                      dispatch(
+                        add({
+                          CompanyName: props.CompanyName,
+                          productName: props.productName,
+                          listName: props.listName,
+                          Name: props.Name,
+                          Price: props.Price,
+                        })
                       )
-                    }
+                    )}
                     className="h-14 w-36 items-center justify-center rounded-xl bg-resid"
                   >
                     <Text className="top-0.5 font-vazir text-2xl text-white">
@@ -125,6 +137,8 @@ export default function Company({ route }: any) {
           renderItem={({ item }) => (
             <Element
               CompanyName={item[1].CompanyName}
+              productName={item[1].productName}
+              listName={item[1].listName}
               Name={item[1].Name}
               Price={item[1].Price}
             />

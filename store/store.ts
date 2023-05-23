@@ -1,9 +1,11 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import message from "./message/slice";
 import company from "./compony/slice";
+import reciept from "./reciept/slice";
 
 export const store = configureStore({
   reducer: {
+    reciept,
     message,
     company,
   },
