@@ -80,7 +80,7 @@ export default function Order() {
           </View>
         </View>
       </View>
-      <View className="grow p-2 mt-10">
+      <View className="h-[80%] p-2 mt-10">
         <FlatList
           data={items}
           renderItem={({ item }) => (
